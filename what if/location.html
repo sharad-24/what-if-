@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+ <style>
+    .button {
+      font-family: cursive;
+  background-color: #309ccf;
+  border-radius: 15px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 245px;
+  cursor: pointer;
+}
+  </style>
+
+<body>
+
+<p style="font-family: cursive;">Click the button to send your coordinates.</p>
+
+<button class="button" onclick="getLocation()">Send</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+ <section class="site-section bg-light" id="contact-section" data-aos="fade">
+      <div class="container">
+       
+        
+        <div class="row">
+          <div class="col-md-12 mb-5">
+
+            
+
+            <form action="connect.php" method="post" class="p-5 bg-white">
+              
+            
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Paste your location here</label>
+                  <input type="text"  id="coordinates" name="coordinates" class="form-control">
+                </div>
+               
+              </div>
+
+          
+             
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input class="button" type="submit" value="Send coordinates" class="btn btn-primary btn-md text-white">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+</body>
+</html>
